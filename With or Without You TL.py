@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
-      background-color: #e6f2ff; /* Light blue background */
+      background-color: #e6f2ff; 
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -38,7 +38,7 @@
     }
     .sticky-column {
       position: sticky;
-      top: 160px; /* Adjusted to account for the sticky header */
+      top: 160px; 
       max-height: calc(100vh - 200px);
       overflow-y: auto;
       padding-right: 10px;
@@ -134,7 +134,7 @@
       text-align: center;
       width: 100%;
     }
-    /* Additional padding to ensure content isn't hidden under sticky elements */
+    
     .content-padding {
       height: 100px;
     }
@@ -182,7 +182,7 @@
 <div class="content-padding"></div>
 
 <script>
-  // Vocabulary data
+  
   const vocabularyData = [
     { word: 'Stone', definition: 'The hard solid substance found in the ground.' },
     { word: "Sleight of hand", definition: 'Skillful hiding of the truth in order to win an advantage.' },
@@ -196,7 +196,7 @@
     { word: 'Bruised', definition: 'Hurt as a result of a bad experience.' },
   ];
 
-  // Shuffle function
+  
   function shuffle(array) {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -206,27 +206,27 @@
     return newArray;
   }
 
-  // Game state
+  
   let draggedWord = null;
   let matchedWords = 0;
   let gameTimer = null;
 
-  // Initialize game
+  
   function initGame() {
     const wordsColumn = document.getElementById('words');
     const definitionsColumn = document.getElementById('definitions');
     
-    // Reset columns
+    
     wordsColumn.innerHTML = '';
     definitionsColumn.innerHTML = '';
 
-    // Create shuffled words array
+    
     const shuffledWords = shuffle([...vocabularyData]);
     
-    // Create separately shuffled definitions array
+    
     const shuffledDefs = shuffle([...vocabularyData]);
 
-    // Populate words
+    
     shuffledWords.forEach((item, index) => {
       const wordElement = document.createElement('div');
       wordElement.classList.add('word');
@@ -239,7 +239,7 @@
       wordsColumn.appendChild(wordElement);
     });
 
-    // Populate definitions (using separately shuffled array)
+    
     shuffledDefs.forEach((item, index) => {
       const defElement = document.createElement('div');
       defElement.classList.add('droppable');
@@ -251,21 +251,21 @@
       definitionsColumn.appendChild(defElement);
     });
 
-    // Reset game state
+    
     matchedWords = 0;
     document.getElementById('score').textContent = `Score: 0/10`;
     document.getElementById('feedback').innerHTML = '';
 
-    // Start timer if selected
+    
     startTimer();
   }
 
-  // Timer functionality
+  
   function startTimer() {
     const timeLimit = parseInt(document.getElementById('time-limit').value);
     const timerDisplay = document.getElementById('timer');
     
-    // Clear any existing timer
+    
     if (gameTimer) clearInterval(gameTimer);
 
     if (timeLimit > 0) {
@@ -312,27 +312,27 @@
       const matchedPair = document.createElement('div');
       matchedPair.classList.add('matched-pair');
       
-      // Word part
+      
       const wordPart = document.createElement('div');
       wordPart.classList.add('word', 'correct');
       wordPart.textContent = draggedWord.textContent;
       
-      // Definition part
+      
       const defPart = document.createElement('div');
       defPart.classList.add('definition', 'correct');
       defPart.textContent = droppedOn.textContent;
       
-      // Add parts to container
+      
       matchedPair.appendChild(wordPart);
       matchedPair.appendChild(defPart);
       
-      // Replace the droppable area with the matched pair
+      
       droppedOn.parentNode.replaceChild(matchedPair, droppedOn);
       
-      // Hide the original dragged word
+      
       draggedWord.style.display = 'none';
       
-      // Mark as matched
+      
       matchedPair.classList.add('matched');
       showPopup('Correct!', true);
       
@@ -348,7 +348,7 @@
     }
   }
 
-  // Popup functionality
+  
   function showPopup(message, isCorrect) {
     // Remove any existing popups
     const existingOverlay = document.querySelector('.overlay');
@@ -367,7 +367,7 @@
     overlay.appendChild(popup);
     document.body.appendChild(overlay);
 
-    // Automatically close after 2 seconds
+    
     setTimeout(() => {
       if (document.body.contains(overlay)) {
         document.body.removeChild(overlay);
@@ -375,16 +375,16 @@
     }, 2000);
   }
 
-  // Event listeners
+  
   document.getElementById('time-limit').addEventListener('change', startTimer);
   document.getElementById('reset-game').addEventListener('click', initGame);
   
-  // Start the game on page load
+  
   initGame();
 </script>
 
 <div class="signature">
-  &copy; 2025 Daniel Rojas :: TΣʃ :: &#9993; <a href="mailto:unitedartistsinstitute@gmail.com">unitedartistsinstitute@gmail.com</a>
+  &copy; 2025 Daniel Rojas :: TΣʃ :: &#9993; <a href="mailto:CVO@tesh.pro">CVO@tesh.pro</a>
 </div>
 </body>
 </html>
