@@ -162,17 +162,17 @@
 </div>
 
 <div class="container">
-  <!-- Words Column -->
+  
   <div class="column">
     <div id="words" class="sticky-column">
-      <!-- Words will be populated by JavaScript -->
+      
     </div>
   </div>
 
-  <!-- Definitions Column -->
+  
   <div class="column">
     <div id="definitions">
-      <!-- Definitions will be populated by JavaScript -->
+      
     </div>
   </div>
 </div>
@@ -288,7 +288,7 @@
     }
   }
 
-  // Drag and drop events
+  
   function dragStart(event) {
     draggedWord = event.target;
     event.dataTransfer.setData("text", event.target.id);
@@ -308,7 +308,7 @@
     const droppableDef = droppedOn.dataset.originalDef;
 
     if (draggedWordDef === droppableDef) {
-      // Create a matched pair container
+      
       const matchedPair = document.createElement('div');
       matchedPair.classList.add('matched-pair');
       
@@ -350,7 +350,7 @@
 
   
   function showPopup(message, isCorrect) {
-    // Remove any existing popups
+    
     const existingOverlay = document.querySelector('.overlay');
     if (existingOverlay) existingOverlay.remove();
 
